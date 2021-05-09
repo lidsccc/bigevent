@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>评论模块</title>
+    <link rel="stylesheet" type="text/css" href="../assets/lib/layui/css/layui.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <span>评论管理</span>
+        </div>
+        <div class="layui-card-body">
+            <!-- 文章列表的表格 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col width="5%">
+                    <col width="15%">
+                    <col width="30%">
+                    <col width="20%">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>评论人</th>
+                        <th>评论内容</th>
+                        <th>评论时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 这里放数据 -->
+                    <tr>
+                        <td>1</td>
+                        <td>goudan</td>
+                        <td>该犯罪还是属于犯罪 改变不了犯罪的事实 改抓抓 该判判</td>
+                        <td>2020-8-19</td>
+                        <td>
+                            <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete">
+                                删除
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="../assets/lib/jquery.js"></script>
+    <script type="text/javascript" src="../assets/lib/layui/layui.all.js"></script>
+</body>
+
+</html>
