@@ -68,10 +68,10 @@
             </td>
             <td>{{$value.swiperimg}}</td>
             <td>
-                {{if $value.swiperstatus==2}}
+                {{if $value.swiperstatus==1}}
                 <span data-status='2' class="layui-badge layui-bg-green" data-change="{{$value.id}}">√</span>
                 {{/if}}
-                {{if $value.swiperstatus==1}}
+                {{if $value.swiperstatus==2}}
                 <span data-status='1' class="layui-badge layui-bg-cyan" data-change="{{$value.id}}">×</span>
                 {{/if}}
             </td>
