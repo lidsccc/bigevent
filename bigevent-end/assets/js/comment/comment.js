@@ -16,6 +16,7 @@ $(function () {
         return n >= 10 ? n : '0' + n
     }
     commentList()
+
     // 查询评论列表
     function commentList() {
         $.ajax({
@@ -23,6 +24,8 @@ $(function () {
             url: '/admin/comments',
             success: function (res) {
                 // console.log(res);
+                q = res.data.length
+                console.log(q);
                 if (res.status !== 0) {
                     return layui.layer.msg('获取评论列表失败')
                 }
@@ -57,4 +60,6 @@ $(function () {
 
         })
     })
+
+
 })
