@@ -44,7 +44,7 @@
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    <button type="reset" class="layui-btn layui-btn-primary" id="reset">重置</button>
                 </div>
             </div>
         </form>
@@ -87,7 +87,7 @@
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" lay-submit lay-filter="formDemo">提交</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    <button type="reset" class="layui-btn layui-btn-primary" id="editReset">重置</button>
                 </div>
             </div>
         </form>
@@ -98,7 +98,7 @@
     <div class="layui-card">
         <div class="layui-card-header">
             <span>友情链接</span>
-            <button id="add-link" type="button" class="layui-btn layui-btn-normal">
+            <button id="add-link" type="button" class="layui-btn layui-btn-normal ">
                 添加链接
             </button>
         </div>
@@ -125,31 +125,45 @@
                 </thead>
                 <tbody>
                     <!-- 这里放数据 -->
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <div class="bg">
-                                <img src="#">
-                            </div>
-                        </td>
-                        <td>阿里云</td>
-                        <td>https://www.aliyun.com/</td>
-                        <td>阿里云</td>
-                        <td>
-                            <button type="button" class="layui-btn layui-btn-xs edit">
-                                编辑
-                            </button>
-                            <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete">
-                                删除
-                            </button>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
     </div>
+    <!-- 模板引擎渲染页面 -->
+    <script type="text/html" id="tpl-link">
+        {{each data}}
+        <tr>
+            <td>{{$value.id}}</td>
+            <td>
+                <div class="bg">
+                    <img src="{{'http://localhost:8888/uploads/'+$value.linkicon}}">
+                </div>
+            </td>
+            <td>{{$value.linkname}}</td>
+            <td>{{$value.linkurl}}</td>
+            <td>{{$value.linkdesc}}</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs edit" data-value="{{$value.id}}" id="btnedit">
+                    编辑
+                </button>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete" id="btndelete" data-value="{{$value.id}}">
+                    删除
+                </button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <!-- ------------------------------- -->
     <script type="text/javascript" src="../assets/lib/jquery.js"></script>
     <script type="text/javascript" src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
+    <!-- 裁剪 -->
+    <script src="../assets/lib/cropper/Cropper.js"></script>
+    <script src="../assets/lib/cropper/jquery-cropper.js"></script>
+    <!-- ------------------------------- -->
+    <script src="../assets/js/baseAPI.js"></script>
+    <script src="../assets/js/link/link.js"></script>
 </body>
 
 </html>
