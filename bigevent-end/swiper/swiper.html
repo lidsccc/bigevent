@@ -59,8 +59,35 @@
             </table>
         </div>
     </div>
+    <script type="text/html" id="swiper_tpl">
+        {{each data}}
+        <tr>
+            <td>{{$value.id}}</td>
+            <td>
+                <img src="http://localhost:8888/uploads/{{$value.swiperimg}}">
+            </td>
+            <td>{{$value.swiperimg}}</td>
+            <td>
+                {{if $value.swiperstatus==2}}
+                <span data-status='2' class="layui-badge layui-bg-green" data-change="{{$value.id}}">√</span>
+                {{/if}}
+                {{if $value.swiperstatus==1}}
+                <span data-status='1' class="layui-badge layui-bg-cyan" data-change="{{$value.id}}">×</span>
+                {{/if}}
+            </td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete" data-del="{{$value.id}}">
+                    删除
+                </button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
     <script type="text/javascript" src="../assets/lib/jquery.js"></script>
     <script type="text/javascript" src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
+    <script src="../assets/js/baseAPI.js"></script>
+    <script src="../assets/js/swiper/swiper.js"></script>
 </body>
 
 </html>
