@@ -90,7 +90,7 @@ $(function() {
         // 编辑链接
     var indexedit = null
         // var aaa = null
-    var data
+
     $('tbody').on('click', '#btnedit', function() {
             var id = $(this).data('value');
             getOneList(id)
@@ -104,6 +104,7 @@ $(function() {
                     $('#linkFile').click()
                 })
                 //监听change事件
+            var data
             $('#linkFile').on('change', function() {
                 var fileList = $(this)[0].files
                 if (fileList.length === 0) return layui.layer.msg('请选择图片')
@@ -129,6 +130,8 @@ $(function() {
                 e.preventDefault()
                 var fd = new FormData(this)
                 fd.append('linkicon', data[0])
+                console.log(data[0]);
+
                 $.ajax({
                     method: 'put',
                     url: '/admin/links/' + id,
