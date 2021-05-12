@@ -1,15 +1,22 @@
 @charset "UTF-8";
+
 * {
   box-sizing: border-box;
 }
 
 body {
   color: #787878;
-  font: 14px/1.5 PingFang SC,Lantinghei SC,Helvetica Neue,Helvetica,Arial,Microsoft YaHei,微软雅黑,STHeitiSC-Light,simsun,宋体,WenQuanYi Zen Hei,WenQuanYi Micro Hei,"sans-serif";
+  font: 14px/1.5 PingFang SC, Lantinghei SC, Helvetica Neue, Helvetica, Arial, Microsoft YaHei, 微软雅黑, STHeitiSC-Light, simsun, 宋体, WenQuanYi Zen Hei, WenQuanYi Micro Hei, "sans-serif";
   -webkit-font-smoothing: antialiased;
 }
 
-ul, h1, h3, h4, p, dl, dd {
+ul,
+h1,
+h3,
+h4,
+p,
+dl,
+dd {
   padding: 0;
   margin: 0;
 }
@@ -23,7 +30,8 @@ i {
   font-style: normal;
 }
 
-input, textarea {
+input,
+textarea {
   outline: none;
   padding: 0;
   border: none;
@@ -168,24 +176,24 @@ ul {
   color: #fff;
 }
 
-.kr_header .navs > li {
+.kr_header .navs>li {
   width: 120px;
   text-align: center;
   position: relative;
   transition: background-color .5s;
 }
 
-.kr_header .navs > li:hover {
+.kr_header .navs>li:hover {
   background-color: #4285f4;
 }
 
-.kr_header .navs > li:hover .list {
+.kr_header .navs>li:hover .list {
   top: 44px;
   opacity: 1;
   transform: scaleY(1);
 }
 
-.kr_header .navs > .is_new:before {
+.kr_header .navs>.is_new:before {
   width: 18px;
   height: 10px;
   transform: scale(0.85);
@@ -310,26 +318,27 @@ ul {
   margin-top: 75px;
 }
 
-.kr_menu .menus > li {
+.kr_menu .menus>li {
   text-align: right;
   line-height: 36px;
   font-size: 18px;
   position: relative;
 }
 
-.kr_menu .menus > li > a {
+.kr_menu .menus>li>a {
   line-height: 1;
   padding: 4px 7px 3px 8px;
   position: relative;
   right: -7px;
 }
 
-.kr_menu .menus > li > a.active, .kr_menu .menus > li > a:hover {
+.kr_menu .menus>li>a.active,
+.kr_menu .menus>li>a:hover {
   color: #fff;
   background-color: #4285f4;
 }
 
-.kr_menu .menus > li > a.is_new:before {
+.kr_menu .menus>li>a.is_new:before {
   width: 18px;
   height: 10px;
   left: -20px;
@@ -829,7 +838,7 @@ ul {
 }
 
 .kr_banner .slides {
-  width: 720px;
+  width: 720px !important;
   border-radius: 2px;
   overflow: hidden;
   position: relative;
@@ -883,7 +892,7 @@ ul {
   margin-top: 40px;
 }
 
-.kr_body .kr_panel > .ad {
+.kr_body .kr_panel>.ad {
   margin: 20px 0;
 }
 
@@ -952,11 +961,11 @@ ul {
   position: relative;
 }
 
-.kr_body .index_feed .meta > a {
+.kr_body .index_feed .meta>a {
   color: #787878;
 }
 
-.kr_body .index_feed .meta > a:hover {
+.kr_body .index_feed .meta>a:hover {
   color: #4d7fd0;
 }
 
