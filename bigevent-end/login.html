@@ -7,10 +7,12 @@
     <!-- 导入LayUI样式文件 -->
     <link rel="stylesheet" type="text/css" href="./assets/lib/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/login1.css">
+
 </head>
 
 <body>
-    <div class="layui-container">
+
+    <div class="layui-container" id="particles">
         <div class="admin-login-background">
             <div class="login-form">
                 <form class="layui-form" action="">
@@ -19,17 +21,14 @@
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-icon layui-icon-username" for="username"></label>
-                        <input type="text" name="username" lay-verify="required" placeholder="用户名或者邮箱"
-                            autocomplete="off" class="layui-input" value="">
+                        <input type="text" name="username" lay-verify="required" placeholder="用户名或者邮箱" autocomplete="off" class="layui-input" value="">
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-icon layui-icon-password" for="password"></label>
-                        <input type="password" name="password" lay-verify="required" placeholder="密码" autocomplete="off"
-                            class="layui-input" value="">
+                        <input type="password" name="password" lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input" value="">
                     </div>
                     <div class="layui-form-item">
-                        <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" type="submit"
-                            lay-filter="login">登 入</button>
+                        <button class="layui-btn layui-btn layui-btn-normal layui-btn-fluid" lay-submit="" type="submit" lay-filter="login">登 入</button>
                     </div>
                 </form>
             </div>
@@ -39,6 +38,10 @@
     <script type="text/javascript" src="./assets/lib/layui/layui.all.js"></script>
     <script src="./assets/js/baseAPI.js"></script>
     <script src="./assets/js/login.js"></script>
+    <script src="./lizi/jquery.js"></script>
+    <script src="./lizi/jquery.particleground.min.js"></script>
+
+    <!-- scripts -->
 
 </body>
 

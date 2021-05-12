@@ -1,5 +1,5 @@
-$(function () {
-    $('.layui-form').on('submit', function (e) {
+$(function() {
+    $('.layui-form').on('submit', function(e) {
         e.preventDefault()
         const data = $(this).serialize()
         $.ajax({
@@ -12,11 +12,18 @@ $(function () {
                 })
                 layui.layer.msg('登陆成功', {
                     icon: 6
-                }, function () {
+                }, function() {
                     localStorage.setItem('token', res.token)
                     location.href = '/index.html'
                 })
             }
         })
     })
+
+    $('#particles').particleground();
+
+    $('#your-element').particleground({
+        dotColor: '#7ec7fd',
+        lineColor: '#7ec7fd'
+    });
 })
