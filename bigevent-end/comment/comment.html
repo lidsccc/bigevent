@@ -33,23 +33,33 @@
                 </thead>
                 <tbody>
                     <!-- 这里放数据 -->
-                    <tr>
-                        <td>1</td>
-                        <td>goudan</td>
-                        <td>该犯罪还是属于犯罪 改变不了犯罪的事实 改抓抓 该判判</td>
-                        <td>2020-8-19</td>
-                        <td>
-                            <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete">
-                                删除
-                            </button>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
     </div>
+    <!-- 模板 -->
+    <script type="text/html" id="list-tpl">
+        {{each data}}
+        <tr>
+            <td>{{$value.id}}</td>
+            <td>{{$value.uname}}</td>
+            <td>{{$value.content}}</td>
+            <td>{{$value.cdate|dataFormate}}</td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete delete_comment"  data-id="{{$value.id}}">
+                    删除
+                </button>
+            </td> 
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 导入 -->
     <script type="text/javascript" src="../assets/lib/jquery.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
     <script type="text/javascript" src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/js/baseAPI.js"></script>
+    <script src="../assets/js/comment/comment.js"></script>
 </body>
 
 </html>
