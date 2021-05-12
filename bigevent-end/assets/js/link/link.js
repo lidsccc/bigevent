@@ -12,9 +12,11 @@ $(function() {
                 }
                 // layui.layer.msg(res.message, { icon: 6 })
                 getlinkList(res)
+
             }
         })
     }
+
     // 获取到的信息渲染进页面
     function getlinkList(res) {
         var htmlStr = template('tpl-link', res)
@@ -110,8 +112,6 @@ $(function() {
                 var file = fileList[0]
                 var newImgURL = URL.createObjectURL(file)
                 $('#preIcon').attr('src', newImgURL)
-
-
             })
             $('#editReset').on('click', function(e) {
                 e.preventDefault()
@@ -119,6 +119,7 @@ $(function() {
                     method: 'get',
                     url: '/admin/links/' + id,
                     success: res => {
+                        $('#preIcon').attr('src', 'http://127.0.0.1:8888/uploads/' + res.data.linkicon)
                         layui.form.val('editForm', res.data)
                         layui.form.render()
                     }
@@ -135,10 +136,12 @@ $(function() {
                     contentType: false,
                     processData: false,
                     success: function(res) {
+                        console.log(res);
                         if (res.status !== 0) {
                             return layui.layer.msg(res.message, { icon: 5 })
                         }
                         layui.layer.msg('编辑链接信息成功', { icon: 6 })
+
                         getlinkNews()
                         layui.layer.close(indexedit)
                     }
@@ -151,6 +154,7 @@ $(function() {
             method: 'get',
             url: '/admin/links/' + id,
             success: res => {
+                $('#preIcon').attr('src', 'http://127.0.0.1:8888/uploads/' + res.data.linkicon)
                 layui.form.val('editForm', res.data)
                 layui.form.render()
             }
