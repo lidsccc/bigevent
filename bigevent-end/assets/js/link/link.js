@@ -1,4 +1,41 @@
 $(function() {
+    var q = {
+        pagesize: 2,
+        pagenum: 2
+    }
+
+    function renderPage(total) {
+        // total 数据总条数
+        layui.laypage.render({
+            elem: 'test1', // 分页页码的容器id
+            count: total, // 数据的总条数
+            limit: q.pagesize, // 每页显示的条数
+            curr: q.pagenum, // 当前是第几页（哪个页码会高亮）
+            limits: [2, 4, 6, 10],
+            layout: ['limit', 'prev', 'page', 'next', 'count', 'skip'], // 自定义排版
+            //①渲染页码时会触发;②切换分页时触发（单击页码按钮触发）
+            jump: function(obj, first) {
+                /* 
+                    obj，当前分页的选项对象
+                    first 是否首次调用
+                        true，首次调用（渲染页码时调用的）
+                        undefined 单击页码按钮时调用的
+                */
+                /* 单击页码按钮时才需要执行下面的代码 */
+                if (!first) {
+                    // 修改参数对象q
+                    q.pagesize = obj.limit
+                    q.pagenum = obj.curr
+                        // 重新获取文章数据
+                        // showswiper()
+                    getlinkNews()
+                }
+            }
+        })
+
+    }
+
+
     //获取链接列表
     getlinkNews()
 
@@ -6,6 +43,7 @@ $(function() {
         $.ajax({
             method: 'get',
             url: '/admin/links',
+            data: q,
             success: function(res) {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.message, { icon: 5 })
@@ -22,6 +60,7 @@ $(function() {
         var htmlStr = template('tpl-link', res)
         $('tbody').html(htmlStr)
             //动态渲染数据时用layui的render方法
+        renderPage(res.total)
         layui.form.render()
     }
     // 单机添加弹出模态框
@@ -108,7 +147,8 @@ $(function() {
             $('#linkFile').on('change', function() {
                 var fileList = $(this)[0].files
                 if (fileList.length === 0) return layui.layer.msg('请选择图片')
-                data = fileList
+                data = fileList[0]
+                console.log(data);
 
                 var file = fileList[0]
                 var newImgURL = URL.createObjectURL(file)
@@ -129,8 +169,9 @@ $(function() {
             $('body').on('submit', '#edit-form', function(e) {
                 e.preventDefault()
                 var fd = new FormData(this)
-                fd.append('linkicon', data[0])
-                console.log(data[0]);
+                if (data) {
+                    fd.append('linkicon', data)
+                }
 
                 $.ajax({
                     method: 'put',
