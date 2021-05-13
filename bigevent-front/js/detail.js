@@ -50,7 +50,7 @@ $(function () {
         e.preventDefault()
 
         if ($('#info_name').val().trim() == '' || $('#info_content').val().trim() == '') {
-            layui.layer.msg('请填写内容')
+            return layui.layer.msg('请填写内容')
         }
 
         $.ajax({
@@ -84,6 +84,9 @@ $(function () {
     $('#shouye').on('click', function () {
         location.href = '../index.html'
     })
-
+    $('#info_content').on('keyup', function () {
+        var num = $('#info_content').val().length
+        document.getElementById('count').innerHTML = num
+    })
 
 })
