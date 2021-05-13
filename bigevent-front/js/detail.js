@@ -81,7 +81,9 @@ $(function () {
 
     }
 
-
+    $('#shouye').on('click', function () {
+        location.href = '../index.html'
+    })
 
 
 })

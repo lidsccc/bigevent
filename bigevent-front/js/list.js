@@ -86,4 +86,7 @@ $(function () {
     $('#news-content').on('click', '#link', function () {
         location.href = '../detail.html'
     })
+    $('#shouye').on('click', function () {
+        location.href = '../index.html'
+    })
 })
