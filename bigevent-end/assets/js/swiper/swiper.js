@@ -1,15 +1,52 @@
 $(function () {
     //渲染轮播图
+    var q = {
+        pagenum: 1, // 获取第x页的数据
+        pagesize: 2, // 每页显示多少条数据
+    }
+
+    function renderPage(total) {
+        // total 数据总条数
+        layui.laypage.render({
+            elem: 'swiper', // 分页页码的容器id
+            count: total, // 数据的总条数
+            limit: q.pagesize, // 每页显示的条数
+            curr: q.pagenum, // 当前是第几页（哪个页码会高亮）
+            limits: [2, 4, 6, 10],
+            layout: ['limit', 'prev', 'page', 'next', 'count', 'skip'], // 自定义排版
+            //①渲染页码时会触发;②切换分页时触发（单击页码按钮触发）
+            jump: function (obj, first) {
+                /* 
+                    obj，当前分页的选项对象
+                    first 是否首次调用
+                        true，首次调用（渲染页码时调用的）
+                        undefined 单击页码按钮时调用的
+                */
+                /* 单击页码按钮时才需要执行下面的代码 */
+                if (!first) {
+                    // 修改参数对象q
+                    q.pagesize = obj.limit
+                    q.pagenum = obj.curr
+                    // 重新获取文章数据
+                    showswiper()
+                }
+            }
+        })
+
+    }
+
     function showswiper() {
         $.ajax({
             type: "get",
             url: "/admin/swipers",
+            data: q,
             success: function (res) {
                 if (res.status !== 0) return layui.layer.msg(res.message, {
                     icon: 5
                 })
                 var htmlStr = template('swiper_tpl', res)
                 $('tbody').html(htmlStr)
+                renderPage(res.total)
             }
         })
     }
