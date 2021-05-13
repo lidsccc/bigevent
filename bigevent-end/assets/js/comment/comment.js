@@ -97,9 +97,15 @@ $(function () {
                     }
                     layui.layer.msg('删除评论成功', {
                         icon: 6
-                    }, function () {
-                        commentList()
                     })
+                    var num = $('.delete').length
+                    if (num === 1) {
+                        // q.pagenum--;
+                        // 判断当前页是不是第1页
+                        query.pagenum = query.pagenum === 1 ? 1 : query.pagenum - 1
+                    }
+                    commentList()
+
                 }
             })
 

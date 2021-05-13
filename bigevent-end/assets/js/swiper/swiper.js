@@ -86,9 +86,15 @@ $(function () {
                     })
                     layui.layer.msg(res.message, {
                         icon: 6
-                    }, function () {
-                        showswiper()
                     })
+                    var num = $('.delete').length
+                    if (num === 1) {
+                        // q.pagenum--;
+                        // 判断当前页是不是第1页
+                        q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+                    }
+                    showswiper()
+
                 }
             })
         })
