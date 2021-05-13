@@ -86,7 +86,9 @@ $(function() {
     }
 
 
-
+    $('#news-content').on('click', '#link', function() {
+        location.href = '../detail.html'
+    })
 
 
 

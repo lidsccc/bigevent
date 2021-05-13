@@ -50,6 +50,8 @@ $(function() {
 
         if ($('#info_name').val().trim() == '' || $('#info_content').val().trim() == '') {
             layui.layer.msg('请填写内容')
+            return
+
         }
 
         $.ajax({
