@@ -55,7 +55,7 @@ $(function () {
     $('tbody').on('click', '.layui-badge', function () {
         const id = $(this).data('change')
         var status = $(this).data('status')
-        status == 1 ? status = 2 : status = 1
+        status == 1 ? status = 1 : status = 2
         $.ajax({
             type: "put",
             url: "/admin/swipers/" + id,
