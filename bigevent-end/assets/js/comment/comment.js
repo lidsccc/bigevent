@@ -15,31 +15,49 @@ $(function () {
     function addZero(n) {
         return n >= 10 ? n : '0' + n
     }
+<<<<<<< HEAD
 
     // 参数对象
     var query = { pagenum: 1, pagesize: 3 }
     commentList()
+=======
+    commentList()
+
+>>>>>>> link
     // 查询评论列表
     function commentList() {
         $.ajax({
             method: 'GET',
             url: '/admin/comments',
+<<<<<<< HEAD
             data: query,
             success: function (res) {
                 console.log(res);
+=======
+            success: function (res) {
+                // console.log(res);
+                q = res.data.length
+                console.log(q);
+>>>>>>> link
                 if (res.status !== 0) {
                     return layui.layer.msg('获取评论列表失败')
                 }
                 // 渲染到页面
                 var htmlStr = template('list-tpl', res)
+<<<<<<< HEAD
                 $('tbody').html(htmlStr)
                 // 渲染分页的页码
                 renderPage(res.total)
+=======
+                // console.log(htmlStr);
+                $('tbody').html(htmlStr)
+>>>>>>> link
 
             }
         })
     }
 
+<<<<<<< HEAD
     /**** 4-分页 ****/
     function renderPage(total) {
         // total 数据总条数
@@ -73,6 +91,8 @@ $(function () {
     }
 
 
+=======
+>>>>>>> link
     // 删除评论   敏感操作,通过事件委托
     $('tbody').on('click', '.delete_comment', function () {
         // 获取被删除文章的id

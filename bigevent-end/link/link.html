@@ -101,7 +101,8 @@
             <button id="add-link" type="button" class="layui-btn layui-btn-normal ">
                 添加链接
             </button>
-        </div>
+        </div>`
+
         <div class="layui-card-body">
             <!-- 文章列表的表格 -->
             <table class="layui-table">
@@ -125,11 +126,12 @@
                 </thead>
                 <tbody>
                     <!-- 这里放数据 -->
-
                 </tbody>
             </table>
         </div>
     </div>
+    <div id="test1"></div>
+
     <!-- 模板引擎渲染页面 -->
     <script type="text/html" id="tpl-link">
         {{each data}}
@@ -137,7 +139,7 @@
             <td>{{$value.id}}</td>
             <td>
                 <div class="bg">
-                    <img src="{{'http://localhost:8888/uploads/'+$value.linkicon}}">
+                    <img src="http://localhost:8888/uploads/{{$value.linkicon}}">
                 </div>
             </td>
             <td>{{$value.linkname}}</td>
