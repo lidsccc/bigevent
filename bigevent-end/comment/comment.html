@@ -38,11 +38,7 @@
             </table>
         </div>
     </div>
-<<<<<<< HEAD
     <div id="laypage_id"></div>
-=======
-
->>>>>>> link
     <!-- 模板 -->
     <script type="text/html" id="list-tpl">
         {{each data}}
@@ -52,10 +48,11 @@
             <td>{{$value.content}}</td>
             <td>{{$value.cdate|dataFormate}}</td>
             <td>
-                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete delete_comment"  data-id="{{$value.id}}">
+                <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delete delete_comment"
+                    data-id="{{$value.id}}">
                     删除
                 </button>
-            </td> 
+            </td>
         </tr>
         {{/each}}
     </script>
