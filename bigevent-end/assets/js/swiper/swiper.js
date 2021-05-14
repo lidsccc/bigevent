@@ -32,7 +32,6 @@ $(function () {
                 }
             }
         })
-
     }
 
     function showswiper() {
@@ -128,6 +127,7 @@ $(function () {
                 }, function () {
                     showswiper()
                 })
+                $('#myfile').val('')
             }
         })
     })
